@@ -16,12 +16,27 @@
  */
 package io.flexibledata.access.shipper.file;
 
+import io.flexibledata.access.mq.MessageQueue;
+import io.flexibledata.access.shipper.AbstractShipperService;
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * 文件投递者服务
  * 
  * @author tan.jie
  *
  */
-public class FileShipperService {
+@Slf4j
+public class FileShipperService extends AbstractShipperService {
+
+	public FileShipperService(MessageQueue<String> queue) {
+		super(queue);
+	}
+
+	@Override
+	public void ship() {
+		String jsonEvent = queue.pop();
+		log.info(jsonEvent);
+	}
 
 }

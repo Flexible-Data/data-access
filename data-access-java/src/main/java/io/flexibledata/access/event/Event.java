@@ -18,6 +18,8 @@ package io.flexibledata.access.event;
 
 import java.util.Map;
 
+import com.google.gson.annotations.SerializedName;
+
 import lombok.Data;
 
 /**
@@ -28,10 +30,14 @@ import lombok.Data;
  */
 @Data
 public class Event {
+	@SerializedName("distinct_id")
 	private String distinctId;
+	@SerializedName("original_id")
+	private String originalId;
 	private Map<String, String> lib;
 	private Map<String, Object> properties;
 	private String type;
 	private String event;
 	private String time;
+	private Area area;
 }

@@ -16,12 +16,46 @@
  */
 package io.flexibledata.access.shipper.kafka;
 
+import java.util.Properties;
+
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.Producer;
+import org.apache.kafka.clients.producer.ProducerRecord;
+
+import io.flexibledata.access.mq.MessageQueue;
+import io.flexibledata.access.shipper.AbstractShipperService;
+import io.flexibledata.access.shipper.ShipperRegistryVo;
+
 /**
  * Kafka投递者服务
  * 
  * @author tan.jie
  *
  */
-public class KafkaShipperService {
+public class KafkaShipperService extends AbstractShipperService {
+	private Producer<String, String> producer;
+	private String topic;
+
+	public KafkaShipperService(final ShipperRegistryVo registryVo, final MessageQueue<String> queue) {
+		super(queue);
+		Properties props = new Properties();
+		props.put("bootstrap.servers", registryVo.getServers());
+		props.put("acks", "all");
+		props.put("retries", 0);
+		props.put("batch.size", 16384);
+		props.put("linger.ms", 1);
+		props.put("buffer.memory", 33554432);
+		props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+		props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+		Producer<String, String> producer = new KafkaProducer<>(props);
+		this.topic = registryVo.getTopic();
+	}
+
+	@Override
+	public void ship() {
+		String event = queue.pop();
+		if (event != null)
+			producer.send(new ProducerRecord<String, String>(topic, event));
+	}
 
 }

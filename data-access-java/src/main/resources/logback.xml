@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property name="log.context.name" value="data-access-java" />
+	<property name="log.charset" value="UTF-8" />
+	<property name="log.pattern"
+		value="[%-5level] %date --%thread-- [%logger] %msg %n" />
+	<contextName>${log.context.name}</contextName>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder charset="${log.charset}">
+			<pattern>${log.pattern}</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="dataAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>/data/data.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>/logs/data-%d{yyyy-MM-dd}.log</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="org.springframework" level="WARN" />
+	<logger name="com.zaxxer.hikari" level="WARN" />
+	<logger name="io.flexibledata.access.shipper.file" level="INFO">
+		<appender-ref ref="dataAppender" />
+	</logger>
+
+	<root>
+		<level value="DEBUG" />
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>

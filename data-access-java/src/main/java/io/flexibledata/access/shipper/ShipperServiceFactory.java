@@ -16,6 +16,11 @@
  */
 package io.flexibledata.access.shipper;
 
+import io.flexibledata.access.constant.ShipperTypeConstant;
+import io.flexibledata.access.mq.MessageQueue;
+import io.flexibledata.access.shipper.file.FileShipperService;
+import io.flexibledata.access.shipper.kafka.KafkaShipperService;
+
 /**
  * 投递工厂，创建投递者服务
  * 
@@ -23,5 +28,20 @@ package io.flexibledata.access.shipper;
  *
  */
 public class ShipperServiceFactory {
-
+	public void createShipperSerivce(final ShipperRegistryVo registryVo, final MessageQueue<String> queue) {
+		AbstractShipperService shipperService = null;
+		switch (registryVo.getType()) {
+		case ShipperTypeConstant.SHIPPER_TYPE_FILE:
+			shipperService = new FileShipperService(queue);
+			break;
+		case ShipperTypeConstant.SHIPPER_TYPE_KAFKA:
+			shipperService = new KafkaShipperService(registryVo, queue);
+			break;
+		case ShipperTypeConstant.SHIPPER_TYPE_DB:
+			break;
+		default:
+			break;
+		}
+		shipperService.ship();
+	}
 }

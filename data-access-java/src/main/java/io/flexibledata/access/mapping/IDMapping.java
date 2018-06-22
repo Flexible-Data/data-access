@@ -16,10 +16,21 @@
  */
 package io.flexibledata.access.mapping;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import lombok.Data;
+
 /**
  * @author tan.jie
  *
  */
+@Entity
+@Data
 public class IDMapping {
-
+	@Id
+	private Long id;
+	private String userId;
+	private String equipmentId;
+	private String cookieId;
 }
