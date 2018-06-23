@@ -35,8 +35,10 @@ public class FileShipperService extends AbstractShipperService {
 
 	@Override
 	public void ship() {
-		String jsonEvent = queue.pop();
-		log.info(jsonEvent);
+		while (true) {
+			String jsonEvent = queue.pop();
+			log.info(jsonEvent);
+		}
 	}
 
 }

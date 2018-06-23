@@ -16,9 +16,15 @@
  */
 package io.flexibledata.access;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableAsync;
+
+import io.flexibledata.access.mq.MessageQueue;
+import io.flexibledata.access.shipper.ShipperRegistryVo;
+import io.flexibledata.access.shipper.ShipperServiceFactory;
 
 /**
  * 启动类
@@ -28,9 +34,19 @@ import org.springframework.scheduling.annotation.EnableAsync;
  */
 @EnableAsync
 @SpringBootApplication
-public class Application {
+public class Application implements CommandLineRunner {
+	@Autowired
+	private MessageQueue<String> queue;
+	@Autowired
+	private ShipperRegistryVo registryVo;
+
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(Application.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		new ShipperServiceFactory().createShipperSerivce(registryVo, queue);
 	}
 
 }

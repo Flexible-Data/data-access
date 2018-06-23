@@ -53,9 +53,11 @@ public class KafkaShipperService extends AbstractShipperService {
 
 	@Override
 	public void ship() {
-		String event = queue.pop();
-		if (event != null)
-			producer.send(new ProducerRecord<String, String>(topic, event));
+		while (true) {
+			String event = queue.pop();
+			if (event != null)
+				producer.send(new ProducerRecord<String, String>(topic, event));
+		}
 	}
 
 }

@@ -16,8 +16,12 @@
  */
 package io.flexibledata.access.mapping;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.Data;
 
@@ -27,10 +31,15 @@ import lombok.Data;
  */
 @Entity
 @Data
+@Table(name = "id_mapping")
 public class IDMapping {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(name = "user_id")
 	private String userId;
+	@Column(name = "equipment_id")
 	private String equipmentId;
+	@Column(name = "cookie_id")
 	private String cookieId;
 }

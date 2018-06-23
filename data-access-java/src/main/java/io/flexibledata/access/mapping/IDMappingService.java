@@ -22,6 +22,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import io.flexibledata.access.constant.Channel;
 import io.flexibledata.access.event.Event;
@@ -32,7 +33,7 @@ import io.flexibledata.access.event.Event;
  * @author tan.jie
  *
  */
-@Component
+@Service
 public class IDMappingService {
 
 	private List<String> eventNameList = Arrays.asList("RegistryEvent", "$SignUp");
