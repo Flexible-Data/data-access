@@ -12,32 +12,14 @@
 
 		<lombok.version>1.16.4</lombok.version>
 		<guava.version>18.0</guava.version>
-		<common-lang3>3.6</common-lang3>
-		<commons-pool.version>1.6</commons-pool.version>
-		<commons-dbcp2.version>2.2.0</commons-dbcp2.version>
 		<gson.version>2.6.1</gson.version>
-		<curator.version>2.10.0</curator.version>
 		<logback.version>1.1.2</logback.version>
 		<slf4j.version>1.7.7</slf4j.version>
-		<groovy.version>2.4.5</groovy.version>
-		<snakeyaml.version>1.16</snakeyaml.version>
-		<netty.version>4.1.16.Final</netty.version>
 		<spring-boot.version>1.5.6.RELEASE</spring-boot.version>
 		<mysql-connector-java.version>5.1.30</mysql-connector-java.version>
-		<h2.version>1.4.196</h2.version>
-		<postgresql.version>9.1-901-1.jdbc4</postgresql.version>
-		<mssql.version>6.1.7.jre7-preview</mssql.version>
-		<hikari-cp.version>2.4.11</hikari-cp.version>
-		<junit.version>4.12</junit.version>
-		<hamcrest.version>1.3</hamcrest.version>
-		<dbunit.version>2.5.3</dbunit.version>
-		<mockito.version>2.7.21</mockito.version>
-		<grpc.version>1.7.0</grpc.version>
-		<protobuf.version>3.4.0</protobuf.version>
-		<guava-retrying.version>2.0.0</guava-retrying.version>
-		<quartz.version>2.3.0</quartz.version>
-		<opentracing.version>0.30.0</opentracing.version>
 		<geoip2.version>2.12.0</geoip2.version>
+		<logstash-logback.version>5.1</logstash-logback.version>
+		<kafka-clients.version>1.1.0</kafka-clients.version>
 
 		<maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
 		<maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
@@ -45,26 +27,10 @@
 		<maven-jar-plugin.version>2.6</maven-jar-plugin.version>
 		<maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
 		<maven-site-plugin.version>3.4</maven-site-plugin.version>
-		<maven-enforcer-plugin.version>1.4</maven-enforcer-plugin.version>
-		<maven-project-info-reports-plugin.version>2.8</maven-project-info-reports-plugin.version>
-		<maven-plugin-plugin.version>3.4</maven-plugin-plugin.version>
 		<maven-source-plugin.version>2.4</maven-source-plugin.version>
-		<maven-jxr-plugin.version>2.5</maven-jxr-plugin.version>
-		<lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
-		<cobertura-maven-plugin.version>2.7</cobertura-maven-plugin.version>
-		<jacoco.version>0.7.9</jacoco.version>
-		<findbugs-maven-plugin.version>3.0.2</findbugs-maven-plugin.version>
 		<maven-checkstyle-plugin.version>2.16</maven-checkstyle-plugin.version>
 		<maven-pmd-plugin.version>3.5</maven-pmd-plugin.version>
-		<jdepend-maven-plugin.version>2.0</jdepend-maven-plugin.version>
-		<taglist-maven-plugin.version>2.4</taglist-maven-plugin.version>
-		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
-		<protobuf-maven-plugin.version>0.5.0</protobuf-maven-plugin.version>
-		<os-maven-plugin.version>1.5.0.Final</os-maven-plugin.version>
-		<coveralls-maven-plugin.version>4.1.0</coveralls-maven-plugin.version>
-		<commons-codec.version>1.10</commons-codec.version>
-		<atomikos.version>4.0.4</atomikos.version>
-		<javax.transaction.version>1.1</javax.transaction.version>
+		<maven-plugin-plugin.version>3.4</maven-plugin-plugin.version>
 
 	</properties>
 
@@ -89,22 +55,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>
 			<version>${spring-boot.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.aspectj</groupId>
-					<artifactId>aspectjweaver</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjrt</artifactId>
-			<version>1.9.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjweaver</artifactId>
-			<version>1.9.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -116,11 +66,7 @@
 			<artifactId>gson</artifactId>
 			<version>${gson.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
-		</dependency>
+
 		<dependency>
 			<groupId>com.maxmind.geoip2</groupId>
 			<artifactId>geoip2</artifactId>
@@ -132,19 +78,14 @@
 			<version>${mysql-connector-java.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>persistence-api</artifactId>
-			<version>1.0</version>
-		</dependency>
-		<dependency>
 			<groupId>net.logstash.logback</groupId>
 			<artifactId>logstash-logback-encoder</artifactId>
-			<version>5.1</version>
+			<version>${logstash-logback.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.kafka</groupId>
 			<artifactId>kafka-clients</artifactId>
-			<version>1.1.0</version>
+			<version>${kafka-clients.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.guava</groupId>
@@ -155,125 +96,73 @@
 
 
 	<build>
-		<extensions>
-			<extension>
-				<groupId>kr.motd.maven</groupId>
-				<artifactId>os-maven-plugin</artifactId>
-				<version>${os-maven-plugin.version}</version>
-			</extension>
-		</extensions>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<configuration>
-						<source>${java.version}</source>
-						<target>${java.version}</target>
-						<testSource>${java.version}</testSource>
-						<testTarget>${java.version}</testTarget>
-					</configuration>
-					<version>${maven-compiler-plugin.version}</version>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-resources-plugin</artifactId>
-					<version>${maven-resources-plugin.version}</version>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-jar-plugin</artifactId>
-					<version>${maven-jar-plugin.version}</version>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-surefire-plugin</artifactId>
-					<configuration>
-						<argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
-					</configuration>
-				</plugin>
-				<plugin>
-					<artifactId>maven-assembly-plugin</artifactId>
-					<version>${maven-assembly-plugin.version}</version>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-site-plugin</artifactId>
-					<version>${maven-site-plugin.version}</version>
-					<configuration>
-						<locales>${project.build.locale}</locales>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>${lifecycle-mapping.version}</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>org.apache.maven.plugins</groupId>
-										<artifactId>maven-enforcer-plugin</artifactId>
-										<versionRange>[1.0.0,)</versionRange>
-										<goals>
-											<goal>enforce</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore />
-									</action>
-								</pluginExecution>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>org.apache.maven.plugins</groupId>
-										<artifactId>maven-plugin-plugin</artifactId>
-										<versionRange>[1.0.0,)</versionRange>
-										<goals>
-											<goal>descriptor</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore />
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-plugin-plugin</artifactId>
-					<version>${maven-plugin-plugin.version}</version>
-					<configuration>
-						<skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
-					</configuration>
-					<executions>
-						<execution>
-							<id>default-descriptor</id>
-							<phase>process-classes</phase>
-						</execution>
-					</executions>
-				</plugin>
-
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-source-plugin</artifactId>
-					<version>${maven-source-plugin.version}</version>
-				</plugin>
-			</plugins>
-		</pluginManagement>
+		<finalName>data-access</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<testSource>${java.version}</testSource>
+					<testTarget>${java.version}</testTarget>
+				</configuration>
+				<version>${maven-compiler-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>${maven-resources-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>${maven-jar-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven-surefire-plugin.version}</version>
+				<configuration>
+					<argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>${maven-assembly-plugin.version}</version>
+				<configuration>
+					<appendAssemblyId>false</appendAssemblyId>
+					<descriptors>
+						<descriptor>src/main/resources/assembly/assembly.xml</descriptor>
+					</descriptors>
+				</configuration>
 				<executions>
 					<execution>
-						<id>attach-sources</id>
-						<phase>verify</phase>
+						<id>assembly</id>
+						<phase>package</phase>
 						<goals>
-							<goal>jar-no-fork</goal>
+							<goal>single</goal>
 						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${maven-source-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-plugin-plugin</artifactId>
+				<version>${maven-plugin-plugin.version}</version>
+				<configuration>
+					<skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
+				</configuration>
+				<executions>
+					<execution>
+						<id>default-descriptor</id>
+						<phase>process-classes</phase>
 					</execution>
 				</executions>
 			</plugin>
@@ -302,20 +191,6 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jxr-plugin</artifactId>
-				<version>${maven-jxr-plugin.version}</version>
-				<reportSets>
-					<reportSet>
-						<id>aggregate</id>
-						<inherited>false</inherited>
-						<reports>
-							<report>aggregate</report>
-						</reports>
-					</reportSet>
-				</reportSets>
-			</plugin>
-			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>findbugs-maven-plugin</artifactId>
 				<version>${findbugs-maven-plugin.version}</version>
@@ -340,19 +215,6 @@
 					<aggregate>true</aggregate>
 					<sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
 					<targetJdk>${java.version}</targetJdk>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>jdepend-maven-plugin</artifactId>
-				<version>${jdepend-maven-plugin.version}</version>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>taglist-maven-plugin</artifactId>
-				<version>${taglist-maven-plugin.version}</version>
-				<configuration>
-					<aggregate>true</aggregate>
 				</configuration>
 			</plugin>
 		</plugins>

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-	<property name="log.context.name" value="data-access-java" />
+	<property name="log.context.name" value="data-access" />
 	<property name="log.charset" value="UTF-8" />
 	<property name="log.pattern"
 		value="[%-5level] %date --%thread-- [%logger] %msg %n" />
+	<springProperty scope="context" name="dataDir"
+		source="spring.shipper.file.dir" defaultValue="./data" />
 	<contextName>${log.context.name}</contextName>
 
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
@@ -14,9 +16,10 @@
 
 	<appender name="DATA"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>./data/data.log</file>
+		<file>${dataDir}/data.json</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>./data/data-%d{yyyy-MM-dd}.log</fileNamePattern>
+			<fileNamePattern>${dataDir}/data-%d{yyyy-MM-dd}.json
+			</fileNamePattern>
 		</rollingPolicy>
 		<encoder>
 			<pattern>%msg%n</pattern>
