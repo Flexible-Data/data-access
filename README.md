@@ -14,3 +14,5 @@
 ![image](https://raw.githubusercontent.com/flexible-data/markdown-photos/dev/data-access/%E6%80%BB%E4%BD%93%E6%9E%B6%E6%9E%84%E5%9B%BE.png)
 
 ## 时序图
+
+![image](ttps://raw.githubusercontent.com/flexible-data/markdown-photos/dev/data-access/%E6%97%B6%E5%BA%8F%E5%9B%BE.jpg)
